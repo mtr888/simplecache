@@ -1,15 +1,17 @@
-# simplecache
+# Simple cache
 
-Very simple in memory cache
+Very simple in memory cache with ttl
 
-# import
+Installation:
+```sh
+go get -u github.com/mtr888/simplecache
+```
 
-go get github.com/mtr888/simplecache
-
-# Usage
-
+Usage:
+```go
 cache := simplecache.NewCache()
 
-cache.Set("userId", 42)
-userId := cache.Get("userId")
+cache.Set("userId", 42, 5*time.Second)
+userId, err := cache.Get("userId")
 cache.Delete("userId")
+```
